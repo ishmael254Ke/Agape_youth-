@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin page</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Agape Youth Library Managements  system</title>
 </head>
 <body>
-    
+
+    <div class="container">
+        <div class="left">
+            <h1>Admin</h1>
+            <hr>
+            <div class="links">
+                <a href="#">Dashboard</a>
+                <br>
+                <a href="/Admin/views/books.html">Books</a>
+                <br>
+                <a href="/Admin/views/settings.html">Settings</a>
+                <br>
+                <div class="username">
+                    <h3 id="username"></h3>
+                    <p id="email"></p>
+                </div>
+
+
+            </div>
+           
+            
+
+        </div>
+        <div class="right">
+            <h1>Dashboard</h1>
+            <hr>
+            
+        </div>
+
+    </div>
+        
 </body>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+    
+    <script src="/controller/config.js"></script>
+    <script src="/Admin/js/index.js"></script>
+   
+   
 </html>

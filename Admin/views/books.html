@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" type="text/css" href="/bootstrap.min.css">
+    <script type="text/javascript" src="/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/Admin/style.css">
+    
     <title>Agape Youth Library Managements  system</title>
+   
 </head>
 <body>
 
     <div class="container">
         <div class="left">
-            <h1>Agape Youth</h1>
+            <h1>Admin</h1>
+            <hr>
             <div class="links">
-                <a href="/staff/home.html">Home</a>
+                <a href="#">Dashboard</a>
                 <br>
-                <a href="/staff/books.html">Books</a>
+                <a href="/Admin/views/books.html">Books</a>
                 <br>
-                <a href="/staff/members.html">Members</a>
+                <a href="/Admin/views/settings.html">Settings</a>
                 <br>
-                <a href="/staff/issue.html">Issue</a>
 
+                <div class="username">
+                    <h3 id="username"></h3>
+                    <p id="email"></p>
+                </div>
             </div>
+            
 
         </div>
         <div class="right">
+            <h1>Manage Books</h1>
+            <hr>
+
+            <div class="buttonRight">
+                <button type="button" class="btn btn-danger" id="addGuest"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Guest </button>
+            </div>
+            
             
         </div>
 
@@ -39,7 +57,9 @@
 
     
     <script src="/controller/config.js"></script>
-    <script src="/staff/js/index.js"></script>
+    <script src="/Admin/js/books.js"></script>
+
+    
    
    
 </html>

@@ -6,7 +6,7 @@
 
 body{
     background-color: #f1f1f1;
-    font-family: 'Open Sans', sans-serif;
+  
     font-size: 16px;
     line-height: 1.5;
     color: #333;
@@ -20,7 +20,7 @@ body{
 }
 
 .container {
-    background-image: url('');
+    background-image: url('/assets/bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -40,6 +40,16 @@ body{
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     padding: 2rem;
+}
+#loginb {
+  background-color: #007bff; /* Blue color used in Bootstrap */
+  color: #333; /* White text color */
+  padding: 8px 16px; /* Padding to match Bootstrap button */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners to match Bootstrap button */
+  cursor: pointer; /* Add pointer cursor on hover */
+  font-family: 'Fredoka One', cursive;
+  font-weight: 500;
 }
 
 .form {
@@ -97,5 +107,7 @@ body{
         border-radius: 50%;
         background-color: white;
   }
+
+ 
       
   
