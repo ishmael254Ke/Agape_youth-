@@ -71,6 +71,15 @@
   color: var(--navy-blue);
   margin-bottom: 5px;
 }
+#issueBooks {
+  font-size: 10px;
+  padding: 4px 8px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  margin-right: 10px;
+  margin-top: 40px;
+}
  .links{
     display: flex;
     flex-direction: column;
@@ -114,4 +123,44 @@
   font-size: 7px;
   font-weight: 300;
   color: var(--navy-blue);
+}
+
+
+.modal-body .form-control {
+  height: 25px;
+  font-size: 10px;
+  padding: 0.25rem 0.5rem;
+}
+
+.modal-body .form-label .form-select {
+  font-size: 10px;
+}
+.form-select {
+  height: 25px;
+  font-size: 10px;
+  padding: 0.25rem 0.5rem;
+}
+.modal-content {
+  background-color: #c9e2f3;
+  background-image: linear-gradient(to bottom, #c9e2f3, #345995);
+}
+.modal-header h1{
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--navy-blue);
+}
+
+.modal-footer button {
+  font-size: 10px;
+  padding: 4px 8px;
+
+}
+.my-table td, .my-table th {
+  font-size: 10px;
+  padding: 0.25rem 0.5rem;
+  margin: 3px;
+}
+.my-table button {
+  font-size: 8px;
+  padding: 3px 6px;
 }

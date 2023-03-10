@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" type="text/css" href="/bootstrap.min.css">
     <script type="text/javascript" src="/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Agape Youth Library Managements  system</title>
 </head>
@@ -34,10 +35,130 @@
         <div class="right">
             <h3>Issue Books</h3>
             <hr>
+
+            
+
+
+            <div class="table">
+              <table class="table table-striped my-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="font-size: 10px;"> S/No</th>
+                      
+                      <th scope="col" style="font-size: 10px;">Author</th>
+                      <th scope="col" style="font-size: 10px;">Title</th>
+                      <th scope="col" style="font-size: 10px;">Category</th>
+                      <th scope="col" style="font-size: 10px;">Description</th>
+                      <th scope="col" style="font-size: 10px;">Status</th> 
+                      <th scope="col" style="font-size: 10px;">Issue</th> 
+                    </tr>
+                  </thead>
+                  <tbody id="booksTable">
+  
+                  </tbody>
+              </div>
+  
+  
+          </div>
+
             
         </div>
 
     </div>
+
+
+
+     <!--modal-->
+
+     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Issue book</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body customizeModalBody">
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="fName" class="form-label">First Name</label>
+                  </div>
+                  <div class="col-md-8">
+                      <input type="text" class="form-control" id="fName">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="lName" class="form-label">Last Name</label>
+                  </div>
+                  <div class="col-md-8">
+                      <input type="text" class="form-control" id="lName">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="pNo" class="form-label">Phone number</label>
+                  </div>
+                  <div class="col-md-8">
+                      <input type="number" class="form-control" id="pNo">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="bookSerialNumber" class="form-label">Serial Number</label>
+                  </div>
+                  <div class="col-md-8">
+                      <input type="text" class="form-control" id="bookSerialNumber" readonly>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="bookName" class="form-label">Book Title</label>
+                  </div>
+                  <div class="col-md-8">
+                      <input type="text" class="form-control" id="bookName" readonly>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="bookAuthor" class="form-label">Book Author</label>
+                  </div>
+                  <div class="col-md-8">
+                      <input type="text" class="form-control" id="bookAuthor" readonly>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="bookCategory" class="form-label">Book Category</label>
+                  </div>
+                  <div class="col-md-8">
+                      <input type="text" class="form-control" id="bookCategory" readonly>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="bookDescription" class="form-label">Book Description</label>
+                  </div>
+                  <div class="col-md-8">
+                      <input type="text" class="form-control" id="bookDescription" readonly>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="bookStatus" class="form-label">Book Status</label>
+                  </div>
+                  <div class="col-md-8">
+                      <input type="text" class="form-control" id="bookStatus" readonly>
+                  </div>
+              </div>
+          </div>
+        
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="ClosedBTN">Close</button>
+              <button type="button" class="btn btn-primary" id="addBook">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
         
 </body>
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>

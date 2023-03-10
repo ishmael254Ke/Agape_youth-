@@ -35,17 +35,20 @@ firebase.auth().onAuthStateChanged(function (user) {
                   }
                   const serialNumber = generateSerialNumber(bookName);
 
-                //create a book object
-                let book = {
-                    bookName: bookName,
-                    bookAuthor: bookAuthor,
-                    bookCategory: bookCategory,
-                    bookDescription: bookDescription,
-                    bookStatus: bookStatus,
-                    bookSerialNumber: serialNumber
-                };
+                  let docId = firebase.firestore().collection('books').doc();
+                        docId.set({ 
+                                bookName: bookName,
+                                bookAuthor: bookAuthor,
+                                bookCategory: bookCategory,
+                                bookDescription: bookDescription,
+                                bookStatus: bookStatus,
+                                bookSerialNumber: serialNumber,
+                                docId: docId.id,
+                                issued: "notTrue"
+
+                            }).then(()=>{
                 //add book to the database
-                firebase.firestore().collection('books').add(book).then(function () {
+                
                     console.log('Book added successfully');
                     document.getElementById('bookName').value = '';
                     document.getElementById('bookAuthor').value = '';
@@ -72,9 +75,19 @@ firebase.auth().onAuthStateChanged(function (user) {
                    
 
                     //show the books in the table
-                    $('#booksTable').append('<tr><td>'+bookSerialNumber+'</td><td>'+bookName+'</td><td>'+bookAuthor+'</td><td>'+bookCategory+'</td><td>'+bookDescription+'</td><td>'+bookStatus+'</td><td><button class="btn btn-danger" onclick="deleteBook(\''+doc.id+'\')">Delete</button></td></tr>');
+                    $('#booksTable').append('<tr><td>'+bookSerialNumber+'</td><td>'+bookName+'</td><td>'+bookAuthor+'</td><td>'+bookCategory+'</td><td>'+bookDescription+'</td><td>'+bookStatus+'</td><td><button class="btn btn-primary" onclick="deleteBook(\''+doc.id+'\')">Delete</button></td></tr>');
                 });
             });
+
+            //delete book
+            window.deleteBook = function (id) {
+                firebase.firestore().collection('books').doc(id).delete().then(function () {
+                    console.log('Book deleted successfully');
+                    window.location.reload();
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            };
 
             
         });
