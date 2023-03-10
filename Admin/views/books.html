@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="/bootstrap.min.css">
     <script type="text/javascript" src="/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/Admin/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
     
     <title>Agape Youth Library Managements  system</title>
    
@@ -21,7 +23,7 @@
             <h1>Admin</h1>
             <hr>
             <div class="links">
-                <a href="#">Dashboard</a>
+                <a href="/Admin/index.html">Dashboard</a>
                 <br>
                 <a href="/Admin/views/books.html">Books</a>
                 <br>
@@ -41,13 +43,98 @@
             <hr>
 
             <div class="buttonRight">
-                <button type="button" class="btn btn-danger" id="addGuest"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Guest </button>
+                <button type="button" class="btn btn-primary" id="addBooks"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Book </button>
             </div>
+
+
+            <div class="table">
+                <table class="table table-striped my-table">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="font-size: 10px;"> S/No</th>
+                        
+                        <th scope="col" style="font-size: 10px;">Author</th>
+                        <th scope="col" style="font-size: 10px;">Title</th>
+                        <th scope="col" style="font-size: 10px;">Category</th>
+                        <th scope="col" style="font-size: 10px;">Description</th>
+                        <th scope="col" style="font-size: 10px;">Status</th> 
+                        <th scope="col" style="font-size: 10px;">Delete</th> 
+                      </tr>
+                    </thead>
+                    <tbody id="booksTable">
+    
+                    </tbody>
+                </div>
+    
+    
+            </div>
+    
             
             
         </div>
 
     </div>
+
+
+
+        <!--modal-->
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Book</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body customizeModalBody">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Book Tittle</label>
+                        <input type="text" class="form-control" id="bookName" >
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Book Author</label>
+                        <input type="text" class="form-control" id="bookAuthor" >
+    
+                     
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">Book Category</label>
+                        <select class="form-select" aria-label="Default select example" id="bookCategory">
+                          <option value="Fiction">Fiction</option>
+                          <option value="Non-Fiction">Non-Fiction</option>
+                          <option value="Poetry">Poetry</option>
+                          <option value="Self-help">Self-help</option>
+                        </select>
+                      
+    
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Book Description</label>
+                        <input type="text" class="form-control" id="bookDescription" >
+                      </div>
+    
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Book Status</label>
+                      <select class="form-select" aria-label="Default select example" id="bookStatus">
+                        <option value="Fiction">New</option>
+                        
+                        <option value="Poetry">Moderate</option>
+                        <option value="Non-Fiction">Old</option>
+                        
+                      </select>
+
+                     
+
+                      </div>
+    
+            
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="ClosedBTN">Close</button>
+                  <button type="button" class="btn btn-primary" id="addBook">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
         
 </body>
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>

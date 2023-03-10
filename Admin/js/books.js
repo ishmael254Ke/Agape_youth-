@@ -18,8 +18,68 @@ firebase.auth().onAuthStateChanged(function (user) {
             document.getElementById('username').innerHTML = fullName;
             document.getElementById('email').innerHTML = email;
 
+            //add books to the system
+            document.getElementById('addBook').addEventListener('click', function () {
+                let bookName = document.getElementById('bookName').value;
+                let bookAuthor = document.getElementById('bookAuthor').value;
+                let bookCategory = document.getElementById('bookCategory').value;
+                let bookDescription = document.getElementById('bookDescription').value;
+                let bookStatus = document.getElementById('bookStatus').value;
+
+                //generate a random id for the book
+                function generateSerialNumber(bookTitle) {
+                    const currentYear = new Date().getFullYear().toString().substr(2,4);
+                    const bookPrefix = bookTitle.substr(0, 3).toUpperCase();
+                    const randomNumber = Math.floor(Math.random() * 900) + 100; 
+                    return `${currentYear}/${randomNumber}/Agape/${bookPrefix}`;
+                  }
+                  const serialNumber = generateSerialNumber(bookName);
+
+                //create a book object
+                let book = {
+                    bookName: bookName,
+                    bookAuthor: bookAuthor,
+                    bookCategory: bookCategory,
+                    bookDescription: bookDescription,
+                    bookStatus: bookStatus,
+                    bookSerialNumber: serialNumber
+                };
+                //add book to the database
+                firebase.firestore().collection('books').add(book).then(function () {
+                    console.log('Book added successfully');
+                    document.getElementById('bookName').value = '';
+                    document.getElementById('bookAuthor').value = '';
+                    document.getElementById('bookCategory').value = '';
+                    document.getElementById('bookDescription').value = '';
+                    document.getElementById('bookStatus').value = '';
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            });
+            document.getElementById('ClosedBTN').onclick=function(){
+                window.location.reload();
+            };
+
+            //get all the  books and show them using Jquery
+            firebase.firestore().collection('books').get().then(function (snapshot) {
+                snapshot.forEach(function (doc) {
+                    let bookSerialNumber = doc.data().bookSerialNumber;
+                    let bookName = doc.data().bookName;
+                    let bookAuthor = doc.data().bookAuthor;
+                    let bookCategory = doc.data().bookCategory;
+                    let bookDescription = doc.data().bookDescription;
+                    let bookStatus = doc.data().bookStatus;
+                   
+
+                    //show the books in the table
+                    $('#booksTable').append('<tr><td>'+bookSerialNumber+'</td><td>'+bookName+'</td><td>'+bookAuthor+'</td><td>'+bookCategory+'</td><td>'+bookDescription+'</td><td>'+bookStatus+'</td><td><button class="btn btn-danger" onclick="deleteBook(\''+doc.id+'\')">Delete</button></td></tr>');
+                });
+            });
+
             
         });
+
+       
 
     }else{
         window.location.href = '/index.html';

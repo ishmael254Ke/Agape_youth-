@@ -13,18 +13,19 @@ firebase.auth().onAuthStateChanged(function (user) {
             
             let email = doc.data().userEmail;
             let userType = doc.data().userType;
-            //if userType is not admin then redirect to staff page
-            if(userType != 'admin'){
-                window.location.href = '/staff/home.html';
+
+            // if user type is admin, then show the admin panel
+            if(userType == 'admin'){
+                window.location.href = '/Admin/index.html';
             }else{
 
             
-
-
             let fullName =userType+ ' '+ fname + ' ' + lname;
             
             document.getElementById('username').innerHTML = fullName;
             document.getElementById('email').innerHTML = email;
+
+
             }
         });
 
